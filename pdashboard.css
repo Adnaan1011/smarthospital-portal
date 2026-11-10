@@ -1,0 +1,64 @@
+h1
+{
+    background-color:rgb(121, 178, 227)
+}
+html
+{
+    background-color:rgb(121, 178, 227)
+}
+.card-body
+{
+    background-color:rgb(121, 178, 227);
+}
+footer
+{
+    background-color:rgb(121, 178, 227);
+}
+.table
+{
+    background-color:rgb(121, 178, 227);
+}
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+
+        .upcoming-appointments,
+        .appointment-history {
+            background: white;
+            padding: 25px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .upcoming-appointments table,
+        .appointment-history table {
+            width: 100%;
+            background-color: white;
+            margin-top: 15px;
+        }
+
+        .upcoming-appointments th,
+        .upcoming-appointments td,
+        .appointment-history th,
+        .appointment-history td {
+            background-color: white !important;
+            color: #212529;
+            vertical-align: middle;
+        }
+
+        .upcoming-appointments h4,
+        .appointment-history h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cancelled-status {
+            background-color: #dc3545;
+            color: white;
+        }

@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Hospital - Registration</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="hospital-icon">
+        <img src="images/logo.png" alt="Hospital Logo" width="100" height="100">
+    </div>
+
+    <center>
+        <h1>SMART HOSPITAL</h1>
+        <h1>Token Booking & Queue Management</h1>
+
+    <div class="register-card">
+
+        <form onsubmit="return validateform()">
+
+            <h2>Create Account</h2>
+            <h3>Register as a New Patient</h3>
+
+            <input type="text" id="name" name="name"
+                placeholder="Enter your name"><br><br>
+
+            <input type="tel" id="mobileNumber" name="mobileNumber"
+                placeholder="Enter your mobile number"><br><br>
+
+            <input type="email" id="email" name="email"
+                placeholder="Enter your email"><br><br>
+
+            <input type="password" id="password" name="password"
+                placeholder="Enter your password"><br><br>
+
+            <input type="password" id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm password"><br><br>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <p class="login-text">
+            Already have an Account?
+            <a href="login.html">Login here</a>
+        </p>
+                <label for="role">Select Role:</label>
+        <select name="role" id="role">
+            <option value="administrator">Doctor</option>
+            <option value="project-manager">Patient</option>
+            <option value="team-leader">Receptionist</option>
+        </select>
+    </div>
+
+    </div>
+    </center>   
+    <script>
+
+        function validateform() {
+
+            let name = document.getElementById("name").value.trim();
+            let mobileNumber = document.getElementById("mobileNumber").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (name === "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+           if (mobileNumber==="") {
+                alert("please enter your mobile number");
+                return false;
+            }
+
+            if (email === "") {
+                alert("Please enter your email");
+                return false;
+            }
+
+            if (password === "") {
+                alert("Please enter your password");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            if (confirmPassword === "") {
+                alert("Please confirm your password");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            alert("Registration details validated successfully!");
+
+            return false;
+        }
+
+    </script>
+
+</body>
+</html>
