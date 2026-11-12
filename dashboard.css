@@ -1,0 +1,39 @@
+h1
+{
+    background-color:rgb(121, 178, 227)
+}
+html
+{
+    background-color:rgb(121, 178, 227)
+}
+.card-body
+{
+    background-color:rgb(121, 178, 227);
+}
+footer
+{
+    background-color:rgb(121, 178, 227);
+}
+.table
+{
+    background-color:rgb(121, 178, 227);
+}
+body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+nav {
+    color: grey;
+    background-color: rgb(121, 178, 227);
+}
+.Todays appointments,
+.Patient queue {
+            background: white;
+            padding: 25px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            width: 100%;
+            overflow: hidden;
+        }

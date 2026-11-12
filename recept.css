@@ -1,0 +1,101 @@
+h1{
+    color:rgb(121, 178, 227);
+}
+.stat-card {
+    background-color: rgb(121, 178, 227);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.stat-card h6 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: black;
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+.content-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid rgb(121, 178, 227);
+}
+.content-card h4 {
+    color: rgb(121, 178, 227);
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.section-description {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.form-label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.form-control,
+.form-select {
+    border: 1px solid #d5dce3;
+    border-radius: 8px;
+    padding: 11px 13px;
+    font-size: 14px;
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: rgb(121, 178, 227);
+    box-shadow: 0 0 6px rgba(121, 178, 227, 0.5);
+}
+textarea.form-control {
+    resize: vertical;
+}
+.btn-primary {
+    background-color: rgb(121, 178, 227);
+    border-color: rgb(121, 178, 227);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: rgb(91, 148, 197);
+    border-color: rgb(91, 148, 197);
+}
+.btn-secondary {
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.alert {
+    border-radius: 8px;
+    padding: 12px 15px;
+}
+@media (max-width: 768px) {
+    .content-card {
+        padding: 20px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
