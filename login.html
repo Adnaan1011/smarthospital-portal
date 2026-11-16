@@ -42,6 +42,7 @@
                     <option value="doctor">Doctor</option>
                     <option value="patient">Patient</option>
                     <option value="receptionist">Receptionist</option>
+                    <option value="administrator">administrator</option>
                 </select>
                 <br><br>
                 <button type="submit">
@@ -83,6 +84,9 @@
             }
             else if (role === "receptionist") {
                 window.location.href = "recept.html";
+            }
+            else if (role === "administrator") {
+                window.location.href= "admin.html";
             }
             return false;
         }
