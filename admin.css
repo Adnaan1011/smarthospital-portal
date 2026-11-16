@@ -1,0 +1,41 @@
+h1{
+    color: rgb(121, 178, 227);
+}
+.card-body
+{
+    color: black;
+    background-color: rgb(121, 178, 227);
+        padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+.card-body:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+.content-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid rgb(121, 178, 227);
+}
+html{
+    background-color: rgb(121, 178, 227);
+}
+h4{
+    color: rgb(121, 178, 227)
+}
+.report-card{
+    background-color: rgb(121, 178, 227);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+}
