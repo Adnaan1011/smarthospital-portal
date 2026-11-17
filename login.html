@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Smart Hospital - Login</title>
     <link rel="stylesheet" href="style.css">
@@ -34,7 +33,6 @@
                     minlength="6"
                     required
                 >
-
                 <br><br>
                 <label for="role">Select Role:</label>
                 <select name="role" id="role" required>
@@ -56,37 +54,50 @@
         </div>
     </center>
     <script>
+        let email = "";
+        let password = "";
+        let role = "";
         function validateform() {
-            let email = document.getElementById("email").value.trim();
-            let password = document.getElementById("password").value;
-            let role = document.getElementById("role").value;
-            if (email === "") {
-                alert("Please enter your email");
-                return false;
-            }
-            if (password === "") {
-                alert("Please enter your password");
+            email = document.getElementById("email").value.trim().toLowerCase();
+            password = document.getElementById("password").value;
+            role = document.getElementById("role").value;
+            if (email === "" || password === "" || role === "") {
+                alert("Please enter all login details.");
                 return false;
             }
             if (password.length < 6) {
-                alert("Password must be at least 6 characters long");
+                alert("Password must be at least 6 characters long.");
                 return false;
             }
-            if (role === "") {
-                alert("Please select your role");
-                return false;
-            }
-            if (role === "doctor") {
+            if (email === "doctor@hospital.com" &&
+                password === "doctor123" &&
+                role === "doctor") {
+                alert("Doctor Login Successful!");
                 window.location.href = "doctordashboard.html";
             }
-            else if (role === "patient") {
+            else if (email === "patient@hospital.com" &&
+                     password === "patient123" &&
+                     role === "patient") {
+                alert("Patient Login Successful!");
                 window.location.href = "patientdashboard.html";
             }
-            else if (role === "receptionist") {
+            else if (email === "receptionist@hospital.com" &&
+                     password === "receptionist123" &&
+                     role === "receptionist") {
+
+                alert("Receptionist Login Successful!");
                 window.location.href = "recept.html";
             }
-            else if (role === "administrator") {
-                window.location.href= "admin.html";
+            else if (email === "admin@hospital.com" &&
+                     password === "admin123" &&
+                     role === "administrator") {
+
+                alert("Administrator Login Successful!");
+                window.location.href = "admin.html";
+            }
+            else {
+
+                alert("Invalid Email, Password or Role. Please try again.");
             }
             return false;
         }
