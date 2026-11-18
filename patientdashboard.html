@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
     <link rel="stylesheet" href="appointment.css">
     <link rel="stylesheet" href="onlinedocconsult.css">
     <link rel="stylesheet" href="medicalrecords.css">
-    <link rel ="stylesheet" href="login.html">
 </head>
 <body>
 <main>
@@ -25,11 +23,10 @@
         </center>
     </section>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-
         <div class="container-fluid">
-             <div class="hospital-icon">
-        <img src="images/logo.jpeg" alt="Hospital Logo" width="120" height="100">
-    </div>
+            <div class="hospital-icon">
+                <img src="images/logo.jpeg" alt="Hospital Logo" width="120" height="100">
+            </div>
             <a class="navbar-brand" href="#">SMART HOSPITAL +</a>
             <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
@@ -50,7 +47,6 @@
                             role="button"
                             data-bs-toggle="dropdown">
                             Departments
-
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -59,7 +55,9 @@
                             <li>
                                 <a class="dropdown-item" href="#">Orthopedics</a>
                             </li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li>
                                 <a class="dropdown-item" href="#">Support</a>
                             </li>
@@ -69,17 +67,17 @@
                         <a class="nav-link disabled">About Us</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" onsubmit="return false;">
                     <input class="form-control me-2"
                         type="search"
                         placeholder="Search">
-                    <button class="btn btn-outline-success" type="submit">
+                    <button class="btn btn-outline-success" type="button">
                         Search
                     </button>
                 </form>
             </div>
         </div>
-        <a href="login.html" class="btn btn-light btn-sm">
+        <a href="login.html" class="btn btn-light btn-sm" onclick="logoutPatient()">
             Logout
         </a>
     </nav>
@@ -89,10 +87,14 @@
         onclick="location.href='appointment.html'">
         BOOK AN APPOINTMENT
     </button>
-    <button type="button" class="btn btn-secondary btn-sm" onclick="location.href='medicalrecords.html'">
+    <button type="button"
+        class="btn btn-secondary btn-sm"
+        onclick="location.href='medicalrecords.html'">
         MEDICAL RECORDS
     </button>
-    <button type="button" class="btn btn-info btn-sm" onclick="location.href='onlinedocconsult.html'">
+    <button type="button"
+        class="btn btn-info btn-sm"
+        onclick="location.href='onlinedocconsult.html'">
         ONLINE DOCTOR CONSULTATION
     </button>
     <br><br>
@@ -101,8 +103,11 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">Patient Name</p>
-                    <h5 class="card-text">Mashood Adnaan</h5>
-                    <p class="card-text">Patient ID: 245639</p>
+                    <h5 class="card-text" id="patientName">Patient Name</h5>
+                    <p class="card-text">
+                        Patient ID:
+                        <span id="patientId">Not Assigned</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -110,7 +115,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">Upcoming Appointments</p>
-                    <h5 class="card-text" id="appointmentCount">3</h5>
+                    <h5 class="card-text" id="appointmentCount">0</h5>
                     <p class="card-title">Scheduled Appointments</p>
                 </div>
             </div>
@@ -121,7 +126,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title">Current Token</p>
-                    <h5 class="card-text">RA0004</h5>
+                    <h5 class="card-text" id="currentToken">Not Assigned</h5>
                     <p class="card-title">General Medicine</p>
                 </div>
             </div>
@@ -130,39 +135,37 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-title">Queue Position</p>
-                    <h5 class="card-text">5</h5>
+                    <h5 class="card-text" id="queuePosition">Not Available</h5>
                     <p class="card-title">Patients Ahead of You</p>
                 </div>
             </div>
         </div>
     </div>
-                        <h4>Queue Status</h4>
-
-                    <div class="token-box">
-                        <h6>Your Token</h6>
-                        <h1 id="queueToken">T025</h1>
-                        <p>Currently Serving: <strong id="servingToken">T020</strong></p>
-                        <p>Patients Waiting: <strong id="waitingCount">8</strong></p>
-                        <span class="badge bg-warning text-dark" id="queueStatus">WAITING</span>
-                    </div>
-
-                    <button class="btn btn-primary w-100 mt-3" onclick="refreshQueue()">
-                        Refresh Queue
-                    </button>
-
-
+    <h4>Queue Status</h4>
+    <div class="token-box">
+        <h6>Your Token</h6>
+        <h1 id="queueToken">Not Assigned</h1>
+        <p>
+            Currently Serving:
+            <strong id="servingToken">Not Available</strong>
+        </p>
+        <p>
+            Patients Waiting:
+            <strong id="waitingCount">Not Available</strong>
+        </p>
+        <span class="badge bg-warning text-dark" id="queueStatus">
+            NO APPOINTMENT
+        </span>
+    </div>
+    <button class="btn btn-primary w-100 mt-3" onclick="refreshQueue()">
+        Refresh Queue
+    </button>
     <br><br>
-
     <div class="upcoming-appointments">
-
         <h4>Upcoming Appointments</h4>
-
         <div class="table-responsive">
-
             <table class="table table-hover">
-
                 <thead>
-
                     <tr>
                         <th>Doctor</th>
                         <th>Department</th>
@@ -170,192 +173,284 @@
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
-
                 </thead>
-
                 <tbody id="appointmentTable">
-
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            No upcoming appointments
+                        </td>
+                    </tr>
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
     <div class="appointment-history">
-
         <h4>Appointment History</h4>
-
         <div class="table-responsive">
-
             <table class="table table-hover">
-
                 <thead>
-
                     <tr>
                         <th>S.No</th>
                         <th>Doctor</th>
                         <th>Date</th>
                         <th>Department</th>
                     </tr>
-
                 </thead>
-
-                <tbody>
-
+                <tbody id="historyTable">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>DR. Rahul Sharma</td>
-                        <td>24/11/26</td>
-                        <td>Cardiology</td>
+                        <td colspan="4" class="text-center">
+                            No appointment history available
+                        </td>
                     </tr>
-
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>DR. Priya Reddy</td>
-                        <td>25/11/26</td>
-                        <td>General Medicine</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>DR. Arjun Kumar</td>
-                        <td>26/11/26</td>
-                        <td>Orthopedics</td>
-                    </tr>
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
     <center>
-
         <footer>
             Copyright @2026 Smart Hospital |
             All Rights Reserved |
             Terms and Conditions
         </footer>
-
     </center>
-
-
 </main>
-
 <script>
+    const loggedInPatient = JSON.parse(
+        localStorage.getItem("loggedInPatient")
+    );
+    if (!loggedInPatient || loggedInPatient.role !== "patient") {
 
-    let appointments = [
-
-        {
-            doctor: "Dr. Rahul Sharma",
-            department: "Cardiology",
-            date: "2026-11-08",
-            status: "CONFIRMED"
-        },
-
-        {
-            doctor: "Dr. Priya Reddy",
-            department: "General Medicine",
-            date: "2026-11-12",
-            status: "CONFIRMED"
-        },
-
-        {
-            doctor: "Dr. Arjun Kumar",
-            department: "Orthopedics",
-            date: "2026-11-15",
-            status: "CONFIRMED"
-        }
-
-    ];
-
-    function displayAppointments() {
-
-        const table = document.getElementById("appointmentTable");
-
-        table.innerHTML = "";
-
-        appointments.forEach((appointment, index) => {
-
-            table.innerHTML += `
-
-                <tr>
-
-                    <td>${appointment.doctor}</td>
-
-                    <td>${appointment.department}</td>
-
-                    <td>${appointment.date}</td>
-
-                    <td>
-
-                        ${
-                            appointment.status === "CONFIRMED"
-                            ? `<span class="badge bg-success">CONFIRMED</span>`
-                            : `<span class="badge cancelled-status">CANCELLED</span>`
-                        }
-
-                    </td>
-
-                    <td>
-
-                        ${
-                            appointment.status === "CONFIRMED"
-                            ? `<button class="btn btn-sm btn-danger"
-                                onclick="cancelAppointment(${index})">
-                                Cancel
-                               </button>`
-                            : `<span class="text-danger">Cancelled</span>`
-                        }
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        });
-
-
-        let count = appointments.filter(
-            appointment => appointment.status === "CONFIRMED"
-        ).length;
-
-        document.getElementById("appointmentCount").textContent = count;
-
-    }
-
-    function cancelAppointment(index) {
-
-        let confirmCancel = confirm(
-            "Are you sure you want to cancel this appointment?"
+        alert("Please login as a patient first.");
+        window.location.href = "login.html";
+    } else {
+        let patients = JSON.parse(
+            localStorage.getItem("hospitalPatients")
+        ) || [];
+        let patient = patients.find(
+            p => p.email === loggedInPatient.email
         );
-
-        if (confirmCancel) {
-
-            appointments[index].status = "CANCELLED";
-
-            alert("Appointment cancelled successfully!");
-
-            displayAppointments();
+        document.getElementById("patientName").textContent =
+            patient ? patient.name : loggedInPatient.name;
+        if (patient && !patient.patientId) {
+            patient.patientId = "PAT" + Math.floor(100000 + Math.random() * 900000);
+            localStorage.setItem(
+                "hospitalPatients",
+                JSON.stringify(patients)
+            );
+        }
+        document.getElementById("patientId").textContent =
+            patient && patient.patientId ? patient.patientId : "Not Assigned";
+        function getAllAppointments() {
+            return JSON.parse(
+                localStorage.getItem("hospitalAppointments")
+            ) || [];
 
         }
+        function getPatientAppointments() {
+            let allAppointments = getAllAppointments();
+            return allAppointments
+                .map((appointment, index) => {
+                    return {
+                        ...appointment,
+                        storageIndex: index
+                    };
+                })
+                .filter(appointment => {
+                    let appointmentEmail =
+                        appointment.patientEmail ||
+                        appointment.email ||
+                        "";
+                    let appointmentName =
+                        appointment.patientName || "";
+                    let sameEmail =
+                        appointmentEmail.toLowerCase() ===
+                        loggedInPatient.email.toLowerCase();
+                    let sameName =
+                        appointmentName.toLowerCase() ===
+                        loggedInPatient.name.toLowerCase();
+                    return sameEmail || (!appointmentEmail && sameName);
+                });
+        }
+        function formatDate(date) {
+            if (!date) {
+                return "Not Available";
+            }
+            let appointmentDate = new Date(date + "T00:00:00");
+            if (isNaN(appointmentDate.getTime())) {
+                return date;
+            }
+            return appointmentDate.toLocaleDateString("en-IN");
+        }
+        function displayAppointments() {
+            const table = document.getElementById("appointmentTable");
+            table.innerHTML = "";
+            let today = new Date();
+            today.setHours(0, 0, 0, 0);
+            let appointments = getPatientAppointments();
+            let upcomingAppointments = appointments.filter(appointment => {
+                let appointmentDate = new Date(appointment.date + "T00:00:00");
+                let status = (appointment.status || "CONFIRMED").toUpperCase();
+                return appointment.date &&
+                    appointmentDate >= today &&
+                    status !== "CANCELLED" &&
+                    status !== "COMPLETED";
+            });
+            if (upcomingAppointments.length === 0) {
+                table.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            No upcoming appointments
+                        </td>
+                    </tr>
+                `;
+            } else {
+                upcomingAppointments.forEach(appointment => {
+                    let doctor =
+                        appointment.doctor ||
+                        appointment.doctorName ||
+                        "Not Assigned";
+                    let department =
+                        appointment.department ||
+                        appointment.specialization ||
+                        "Not Assigned";
+                    let status =
+                        (appointment.status || "CONFIRMED").toUpperCase();
+                    table.innerHTML += `
+                        <tr>
+                            <td>${doctor}</td>
+                            <td>${department}</td>
+                            <td>${formatDate(appointment.date)}</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    ${status}
+                                </span>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-danger"
+                                    onclick="cancelAppointment(${appointment.storageIndex})">
+                                    Cancel
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+            document.getElementById("appointmentCount").textContent =
+                upcomingAppointments.length;
+        }
+        function cancelAppointment(storageIndex) {
+            let confirmCancel = confirm(
+                "Are you sure you want to cancel this appointment?"
+            );
+            if (!confirmCancel) {
+                return;
+            }
+            let allAppointments = getAllAppointments();
+            let appointment = allAppointments[storageIndex];
+            if (!appointment) {
+                alert("Appointment not found. Please refresh the dashboard.");
+                return;
 
-    }
-
-
-    window.onload = function() {
-
+            }
+            appointment.status = "CANCELLED";
+            localStorage.setItem(
+                "hospitalAppointments",
+                JSON.stringify(allAppointments)
+            );
+            alert("Appointment cancelled successfully!");
+            displayAppointments();
+            displayHistory();
+            updateQueue();
+        }
+        function displayHistory() {
+            const table = document.getElementById("historyTable");
+            table.innerHTML = "";
+            let today = new Date();
+            today.setHours(0, 0, 0, 0);
+            let appointments = getPatientAppointments();
+            let historyAppointments = appointments.filter(appointment => {
+                let appointmentDate = new Date(appointment.date + "T00:00:00");
+                let status = (appointment.status || "").toUpperCase();
+                return status === "CANCELLED" ||
+                    status === "COMPLETED" ||
+                    (appointment.date && appointmentDate < today);
+            });
+            if (historyAppointments.length === 0) {
+                table.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No appointment history available
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            historyAppointments.forEach((appointment, index) => {
+                let doctor =
+                    appointment.doctor ||
+                    appointment.doctorName ||
+                    "Not Assigned";
+                let department =
+                    appointment.department ||
+                    appointment.specialization ||
+                    "Not Assigned";
+                table.innerHTML += `
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${doctor}</td>
+                        <td>${formatDate(appointment.date)}</td>
+                        <td>${department}</td>
+                    </tr>
+                `;
+            });
+        }
+        function updateQueue() {
+            let appointments = getPatientAppointments();
+            let today = new Date();
+            today.setHours(0, 0, 0, 0);
+            let activeAppointment = appointments.find(appointment => {
+                let appointmentDate = new Date(appointment.date + "T00:00:00");
+                let status = (appointment.status || "CONFIRMED").toUpperCase();
+                return appointment.date &&
+                    appointmentDate >= today &&
+                    status !== "CANCELLED" &&
+                    status !== "COMPLETED";
+            });
+            if (!activeAppointment) {
+                document.getElementById("currentToken").textContent = "Not Assigned";
+                document.getElementById("queueToken").textContent = "Not Assigned";
+                document.getElementById("queuePosition").textContent = "Not Available";
+                document.getElementById("servingToken").textContent = "Not Available";
+                document.getElementById("waitingCount").textContent = "Not Available";
+                document.getElementById("queueStatus").textContent = "NO APPOINTMENT";
+                return;
+            }
+            let token = activeAppointment.token || "Not Assigned";
+            document.getElementById("currentToken").textContent = token;
+            document.getElementById("queueToken").textContent = token;
+            document.getElementById("queuePosition").textContent =
+                activeAppointment.queuePosition || "Not Available";
+            document.getElementById("servingToken").textContent =
+                activeAppointment.servingToken || "Not Available";
+            document.getElementById("waitingCount").textContent =
+                activeAppointment.waitingCount ?? "Not Available";
+            document.getElementById("queueStatus").textContent =
+                (activeAppointment.status || "CONFIRMED").toUpperCase();
+        }
+        function refreshQueue() {
+            displayAppointments();
+            displayHistory();
+            updateQueue();
+            alert("Dashboard refreshed successfully!");
+        }
+        function logoutPatient() {
+            localStorage.removeItem("loggedInPatient");
+            localStorage.removeItem("loggedInUser");
+        }
         displayAppointments();
-
-    };
-    function refreshQueue() {
-
-    alert("Queue information refreshed!");
-}
+        displayHistory();
+        updateQueue();
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
