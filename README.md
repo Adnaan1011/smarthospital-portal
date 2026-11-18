@@ -20,7 +20,9 @@ A frontend hospital management prototype built with HTML, CSS, JavaScript, and B
 - View appointment, waiting, and completed counts
 
 ### Doctor
-- View appointments assigned to the doctor
+- Three separate demo doctor accounts: Dr. Rahul Sharma, Dr. Priya Reddy, and Dr. Anil Kumar
+- All three doctor accounts open the shared `doctordashboard.html` page
+- Each doctor sees their own profile and appointments assigned to them
 - Filter appointments by date
 - View the patient waiting queue
 - Update consultation and completion statuses
@@ -74,11 +76,13 @@ project intern/
 6. The website will open in your browser. Use the same browser and Live Server address when testing the dashboards so they can access the same Local Storage data.
 
 ## Demo Staff Accounts
-These demo accounts are defined in the frontend login code:
+These demo staff accounts are defined in the frontend login code. The three doctors use separate credentials but share the same doctor dashboard page:
 
 | Role | Email | Password |
 |---|---|---|
-| Doctor | doctor@hospital.com | doctor123 |
+| Doctor – Dr. Rahul Sharma | rahul@hospital.com | rahul123 |
+| Doctor – Dr. Priya Reddy | priya@hospital.com | priya123 |
+| Doctor – Dr. Anil Kumar | anil@hospital.com | anil123 |
 | Receptionist | receptionist@hospital.com | receptionist123 |
 | Admin | admin@hospital.com | admin123 |
 
@@ -110,13 +114,13 @@ Appointment status values used by the frontend include:
 Status updates are stored with the appointment record and can be read by the connected dashboards.
 
 ## Mock Data
-Default doctors and departments are initialized by the application where needed. Patient and appointment records are created through registration and booking flows rather than supplied as fixed sample records. See `mock-data.json` for the extracted data structures and demo values, if included alongside this README.
+Default doctors and departments are initialized by the application where needed. Patient and appointment records are created through registration and booking flows rather than supplied as fixed sample records. See `mock-data.json` for the documented default doctor and department records, appointment status values, Local Storage keys, record formats, and demo login account details. This JSON file is documentation/reference data; the frontend does not automatically load it. The actual login credentials are validated by the JavaScript in `login.html`.
 
 
 ## Limitations
 - Frontend prototype; no backend API or server-side database
 - Local Storage data is specific to a browser profile and website origin
-- Demo login credentials are hardcoded and are not secure for production use
+- Demo login credentials are hardcoded in the frontend and are not secure for production use
 - No real-time multi-device synchronization
 - No real SMS/email notification or payment integration
 - Not intended for handling real patient health information
