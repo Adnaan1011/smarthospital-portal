@@ -40,12 +40,10 @@
                     <option value="doctor">Doctor</option>
                     <option value="patient">Patient</option>
                     <option value="receptionist">Receptionist</option>
-                    <option value="administrator">administrator</option>
+                    <option value="administrator">Administrator</option>
                 </select>
                 <br><br>
-                <button type="submit">
-                    Login
-                </button>
+                <button type="submit">Login</button>
             </form>
             <p class="register-text">
                 Don't have an account?
@@ -54,71 +52,87 @@
         </div>
     </center>
     <script>
-function validateform() {
-    let email = document.getElementById("email").value.trim().toLowerCase();
-    let password = document.getElementById("password").value;
-    let role = document.getElementById("role").value;
-    if (!email || !password || !role) {
-        alert("Please enter all login details.");
-        return false;
-    }
-    let demoAccounts = [
-        {
-            email: "doctor@hospital.com",
-            password: "doctor123",
-            role: "doctor",
-            page: "doctordashboard.html"
-        },
-        {
-            email: "receptionist@hospital.com",
-            password: "receptionist123",
-            role: "receptionist",
-            page: "recept.html"
-        },
-        {
-            email: "admin@hospital.com",
-            password: "admin123",
-            role: "administrator",
-            page: "admin.html"
-        }
-    ];
-    let account = demoAccounts.find(function(user) {
-        return user.email === email &&
-               user.password === password &&
-               user.role === role;
-    });
-    if (account) {
-        localStorage.setItem("loggedInUser", JSON.stringify({
-            email: account.email,
-            role: account.role
-        }));
-        alert("Login Successful!");
-        window.location.href = account.page;
-        return false;
-    }
-    if (role === "patient") {
-        let patients = JSON.parse(
-            localStorage.getItem("hospitalPatients") || "[]"
-        );
-        let patient = patients.find(function(user) {
-            return user.email.toLowerCase() === email &&
-                   user.password === password;
-        });
-        if (patient) {
-            localStorage.setItem("loggedInPatient", JSON.stringify({
-                name: patient.name,
-                email: patient.email,
-                mobileNumber: patient.mobileNumber,
-                role: "patient"
-            }));
-            alert("Patient Login Successful!");
-            window.location.href = "patientdashboard.html";
+        function validateform() {
+            let email = document.getElementById("email").value.trim().toLowerCase();
+            let password = document.getElementById("password").value;
+            let role = document.getElementById("role").value;
+            if (!email || !password || !role) {
+                alert("Please enter all login details.");
+                return false;
+            }
+            let demoAccounts = [
+                {
+                    email: "rahul@hospital.com",
+                    password: "rahul123",
+                    role: "doctor",
+                    doctorEmail: "rahul@hospital.com",
+                    page: "doctordashboard.html"
+                },
+                {
+                    email: "priya@hospital.com",
+                    password: "priya123",
+                    role: "doctor",
+                    doctorEmail: "priya@hospital.com",
+                    page: "doctordashboard.html"
+                },
+                {
+                    email: "anil@hospital.com",
+                    password: "anil123",
+                    role: "doctor",
+                    doctorEmail: "anil@hospital.com",
+                    page: "doctordashboard.html"
+                },
+                {
+                    email: "receptionist@hospital.com",
+                    password: "receptionist123",
+                    role: "receptionist",
+                    page: "recept.html"
+                },
+                {
+                    email: "admin@hospital.com",
+                    password: "admin123",
+                    role: "administrator",
+                    page: "admin.html"
+                }
+            ];
+            let account = demoAccounts.find(function(user) {
+                return user.email === email &&
+                    user.password === password &&
+                    user.role === role;
+            });
+            if (account) {
+                localStorage.setItem("loggedInUser", JSON.stringify({
+                    email: account.email,
+                    role: account.role,
+                    doctorEmail: account.doctorEmail || ""
+                }));
+                alert("Login Successful!");
+                window.location.href = account.page;
+                return false;
+            }
+            if (role === "patient") {
+                let patients = JSON.parse(
+                    localStorage.getItem("hospitalPatients") || "[]"
+                );
+                let patient = patients.find(function(user) {
+                    return user.email.toLowerCase() === email &&
+                        user.password === password;
+                });
+                if (patient) {
+                    localStorage.setItem("loggedInPatient", JSON.stringify({
+                        name: patient.name,
+                        email: patient.email,
+                        mobileNumber: patient.mobileNumber,
+                        role: "patient"
+                    }));
+                    alert("Patient Login Successful!");
+                    window.location.href = "patientdashboard.html";
+                    return false;
+                }
+            }
+            alert("Invalid Email, Password or Role. Please try again.");
             return false;
         }
-    }
-    alert("Invalid Email, Password or Role. Please try again.");
-    return false;
-}
-</script>
+    </script>
 </body>
 </html>
